@@ -1,7 +1,9 @@
 <?php
 namespace BootstrapUI\View\Helper;
 
-class HtmlHelper extends \Cake\View\Helper\HtmlHelper
+use Cake\View\Helper\HtmlHelper as CakeHtmlHelper;
+
+class HtmlHelper extends CakeHtmlHelper
 {
     use OptionsAwareTrait;
 
@@ -19,34 +21,6 @@ class HtmlHelper extends \Cake\View\Helper\HtmlHelper
         unset($options['tag']);
 
         return $this->tag($tag, $text, $this->injectClasses('badge', $options));
-    }
-
-    /**
-     * Returns breadcrumbs as a (x)html list
-     *
-     * This method uses HtmlHelper::tag() to generate list and its elements. Works
-     * similar to HtmlHelper::getCrumbs(), so it uses options which every
-     * crumb was added with.
-     *
-     * ### Options
-     *
-     * - `separator` Separator content to insert in between breadcrumbs, defaults to ''
-     * - `firstClass` Class for wrapper tag on the first breadcrumb, defaults to 'first'
-     * - `lastClass` Class for wrapper tag on current active page, defaults to 'last'
-     *
-     * @param array $options Array of HTML attributes to apply to the generated list elements.
-     * @param string|array|bool $startText This will be the first crumb, if false it defaults to first crumb in
-     *   array. Can also be an array, see `HtmlHelper::getCrumbs` for details.
-     * @return string|null Breadcrumbs HTML list.
-     * @link http://book.cakephp.org/3.0/en/views/helpers/html.html#creating-breadcrumb-trails-with-htmlhelper
-     */
-    public function getCrumbList(array $options = [], $startText = false)
-    {
-        $options += [
-            'separator' => '',
-        ];
-
-        return parent::getCrumbList($this->injectClasses('breadcrumb', $options), $startText);
     }
 
     /**
