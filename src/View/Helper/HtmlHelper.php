@@ -30,7 +30,7 @@ class HtmlHelper extends CakeHtmlHelper
      * @param array $options Additional HTML attributes.
      * @return string HTML icon markup.
      */
-    public function icon($name, array $options = [])
+    public function icon(string $name, array $options = []): string
     {
         $options += [
             'tag' => 'i',
