@@ -519,7 +519,7 @@ class FormHelper extends Helper
      * @param bool $offset If true, will append `offset-` to the class.
      * @return string Classes.
      */
-    protected function _gridClass($position, $offset = false)
+    protected function _gridClass(string $position, bool $offset = false): string
     {
         $class = 'col-%s-';
         if ($offset) {
