@@ -366,7 +366,11 @@ class FormHelper extends Helper
         }
 
         if ($secure === true) {
-            $this->_secure(true, $this->_secureFieldName($options['name']), (string)$options['val']);
+            $this->formProtector->addField(
+                $options['name'],
+                true,
+                (string)$options['val']
+            );
         }
 
         $options['type'] = 'hidden';
